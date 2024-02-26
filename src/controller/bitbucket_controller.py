@@ -2,9 +2,9 @@ from flask_restplus import Namespace, Resource, reqparse
 from flask import jsonify
 from src.service.bitbucket_service import BitbucketService
 
-bitbucket_api = Namespace('bitbucket', description='Bitbucket operations')
+bitbucket_api = Namespace('BB', description='BB operations')
 
-@bitbucket_api.route('/create_project')
+@bitbucket_api.route('/BBmigration')
 class CreateProject(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('bitbucketserverurl', type=str, required=True, help='Bitbucket Server URL')
@@ -15,7 +15,7 @@ class CreateProject(Resource):
     parser.add_argument('cloudauthusername', type=str, required=True, help='Bitbucket Cloud username')
     parser.add_argument('cloudauthpassword', type=str, required=True, help='Bitbucket Cloud password')
 
-    @bitbucket_api.doc('create_project')
+    @bitbucket_api.doc('BBmigration')
     @bitbucket_api.expect(parser)
     def get(self):
         args = self.parser.parse_args()
