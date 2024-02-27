@@ -1,4 +1,4 @@
-from flask_restplus import Namespace, Resource, reqparse
+from flask_restx import Namespace, Resource, reqparse
 from flask import jsonify
 from src.service.bitbucket_service import BitbucketService
 

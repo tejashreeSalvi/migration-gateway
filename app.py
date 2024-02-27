@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restplus import Api
+from flask_restx import Api
 from src.controller.bitbucket_controller import bitbucket_api
 
 app = Flask(__name__)
@@ -11,4 +11,4 @@ api.add_namespace(bitbucket_api, path='/BB')
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5100)
+    app.run(host="0.0.0.0", port=5100, debug=True)
